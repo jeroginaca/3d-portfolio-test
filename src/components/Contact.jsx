@@ -7,6 +7,9 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+import SectionHeading from "./SectionHeading";
+
+
 
 const Contact = () => {
   const formRef = useRef();
@@ -62,7 +65,15 @@ const Contact = () => {
     );
   }
   return (
-    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
+    <>
+       <SectionHeading
+          headText="Ahora un poco"
+          title="Sobre Mi"
+          text="Los siguientes proyectos muestran mis habilidades y experiencia a través de ejemplos concretos de lo que he aprendido en mis estudios. Cada proyecto está brevemente descrito e incluye enlaces a repositorios de código y demostraciones en vivo. Esto refleja mi capacidad para resolver problemas complejos, trabajar con diversas tecnologías y gestionar proyectos de manera efectiva.
+          "
+      />
+
+    <div className={`xl:mt-24 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
@@ -112,7 +123,7 @@ const Contact = () => {
             type='submit'
             className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
           >
-            {loading ? "Sending..." : "Send"}
+            {loading ? "Enviando..." : "Enviar"}
           </button>
         </form>
       </motion.div>
@@ -124,6 +135,7 @@ const Contact = () => {
         <EarthCanvas />
       </motion.div>
     </div>
+    </>
   )
 }
 

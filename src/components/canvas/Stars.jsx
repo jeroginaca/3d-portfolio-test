@@ -9,18 +9,18 @@ const Stars = (props) => {
   const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }));
 
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
+    ref.current.rotation.x -= delta / 30;
+    ref.current.rotation.y -= delta / 35;
   });
 
 
   return (
-    <group rotation={[0, 0, Math.PI / 4]}>
+    <group rotation={[0, 0, Math.PI / 9]}> {/* Define la rotación en cada uno de los ejes X, Y y Z. El valor Math.PI / 9 está aplicando una rotación alrededor del eje Z de π/9 radianes, lo que equivale a 20 grados. */}
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
           color='#f272c8'
-          size={0.002}
+          size={0.001}
           sizeAttenuation={true}
           depthWrite={false}
         />
